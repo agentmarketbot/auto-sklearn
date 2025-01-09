@@ -174,6 +174,9 @@ to restrict the searchspace:
             include={"data_preprocessor": ["NoPreprocessing"]},
         )
 
+    Note: Make sure to register the NoPreprocessing component BEFORE creating the AutoSklearnClassifier.
+    The component must be registered first, otherwise you'll get a ValueError saying the component is not valid.
+
     For a complete example, refer to :ref:`example <sphx_glr_examples_80_extending_example_extending_data_preprocessor.py>`.
 
 .. collapse:: <b>Turn off feature preprocessing</b>

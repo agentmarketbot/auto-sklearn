@@ -10,6 +10,9 @@ This is useful when you want to:
 3. Ensure the data remains unchanged before reaching the models
 
 Note: You must register the NoPreprocessing component before using it in include={}.
+This example shows how to properly disable data preprocessing in auto-sklearn.
+
+Fixes #1745
 """
 from typing import Optional
 from pprint import pprint
