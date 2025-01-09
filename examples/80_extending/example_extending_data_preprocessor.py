@@ -3,7 +3,13 @@
 Extending Auto-Sklearn with Data Preprocessor Component
 =======================================================
 
-The following example demonstrates how to turn off data preprocessing step in auto-skearn.
+The following example demonstrates how to turn off data preprocessing step in auto-sklearn.
+This is useful when you want to:
+1. Skip automatic data preprocessing (One-Hot encoding, imputation, normalization)
+2. Use your own preprocessed data directly
+3. Ensure the data remains unchanged before reaching the models
+
+Note: You must register the NoPreprocessing component before using it in include={}.
 """
 from typing import Optional
 from pprint import pprint

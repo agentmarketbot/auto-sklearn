@@ -153,11 +153,28 @@ to restrict the searchspace:
 
     Data preprocessing includes One-Hot encoding of categorical features, imputation
     of missing values and the normalization of features or samples. These ensure that
-    the data the gets to the sklearn models is well formed and can be used for
+    the data that gets to the sklearn models is well formed and can be used for
     training models.
 
-    While this is necessary in general, if you'd like to disable this step, please
-    refer to this :ref:`example <sphx_glr_examples_80_extending_example_extending_data_preprocessor.py>`.
+    While this is necessary in general, if you'd like to disable this step, you need to:
+    
+    1. First register the NoPreprocessing component:
+
+    .. code:: python
+
+        from autosklearn.pipeline.components.data_preprocessing import add_preprocessor
+        from autosklearn.pipeline.components.data_preprocessing.NoPreprocessing import NoPreprocessing
+        add_preprocessor(NoPreprocessing)
+
+    2. Then include it in your classifier configuration:
+
+    .. code:: python
+
+        automl = AutoSklearnClassifier(
+            include={"data_preprocessor": ["NoPreprocessing"]},
+        )
+
+    For a complete example, refer to :ref:`example <sphx_glr_examples_80_extending_example_extending_data_preprocessor.py>`.
 
 .. collapse:: <b>Turn off feature preprocessing</b>
 
